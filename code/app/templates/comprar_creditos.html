@@ -1,0 +1,30 @@
+<!-- app/templates/comprar_creditos.html -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Comprar Créditos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h2>Comprar Créditos</h2>
+
+    <h3>Créditos en Wallet: {{ wallet.creditos }}</h3>
+
+    <form action="{{ url_for('routes.comprar_creditos') }}" method="POST">
+        <label for="paquete_id">Selecciona un paquete de créditos:</label>
+        <select name="paquete_id" id="paquete_id">
+            {% for paquete in paquetes %}
+                <option value="{{ paquete.id_paquete }}">
+                    {{ paquete.nombre }} - Créditos: {{ paquete.cantidad_creditos }} - Precio: ${{ paquete.precio_usd }} USD - Créditos de regalo: {{ paquete.bonificacion }}
+                </option>
+            {% endfor %}
+        </select>
+        
+        <button type="submit">Comprar</button>
+    </form>
+
+    <a href="{{ url_for('routes.home') }}">Volver a Inicio</a>
+</body>
+</html>

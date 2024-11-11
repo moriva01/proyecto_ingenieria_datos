@@ -1,0 +1,42 @@
+<!-- app/templates/home.html -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Página de Inicio</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h2>Bienvenido, {{ jugador.nickname }}</h2>
+
+    <h3>Créditos en Wallet</h3>
+    <p>Tienes {{ wallet.creditos }} créditos.</p>
+    <a href="{{ url_for('routes.comprar_creditos') }}">Comprar Créditos</a>
+
+    <h3>Inventario</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Objeto</th>
+                <th>Cantidad</th>
+                <th>Valor (por unidad)</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in inventario %}
+                <tr>
+                    <td>{{ item.nombre_objeto }}</td>
+                    <td>{{ item.cantidad }}</td>
+                    <td>{{ item.valor_unitario }}</td> <!-- Muestra el valor unitario -->
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+
+    <a href="{{ url_for('routes.apuestas') }}">Apuestas</a>
+    <a href="{{ url_for('routes.comprar_vender') }}">Compra y Venta de Recursos</a>
+    <a href="{{ url_for('routes.logout') }}">Cerrar Sesión</a>
+</body>
+</html>

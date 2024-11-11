@@ -1,0 +1,31 @@
+<!-- app/templates/apuestas.html -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Apuestas</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h2>Apuestas</h2>
+
+    <form action="{{ url_for('routes.apuestas') }}" method="POST">
+        <label for="objeto_id">Selecciona un recurso para apostar:</label>
+        <select name="objeto_id" id="objeto_id">
+            {% for objeto, cantidad in inventario %}
+                <option value="{{ objeto.id_objeto }}">
+                    {{ objeto.nombre_objeto }} - Cantidad: {{ cantidad }}
+                </option>
+            {% endfor %}
+        </select>
+
+        <label for="cantidad">Cantidad a apostar:</label>
+        <input type="number" name="cantidad" id="cantidad" min="1" required>
+
+        <button type="submit">Apostar</button>
+    </form>
+
+    <a href="{{ url_for('routes.home') }}">Volver a Inicio</a>
+</body>
+</html>
