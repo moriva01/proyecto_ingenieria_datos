@@ -1,0 +1,105 @@
+<!-- app/templates/admin.html -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Panel de Administración</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Panel de Administración</h2>
+
+        <h3>Compras por Hora</h3>
+        <table>
+            <tr>
+                <th>Hora</th>
+                <th>Total Compras</th>
+            </tr>
+            {% for row in compras_por_hora %}
+            <tr>
+                <td>{{ row.hora }}</td>
+                <td>{{ row.total_compras }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <h3>Porcentaje de Éxito en Apuestas</h3>
+        <table>
+            <tr>
+                <th>Usuario</th>
+                <th>Porcentaje de Éxito</th>
+            </tr>
+            {% for row in porcentaje_exito_apuestas %}
+            <tr>
+                <td>{{ row.nickname }}</td>
+                <td>{{ row.porcentaje_exito }}%</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <h3>Top 5 Usuarios con Más Créditos Comprados</h3>
+        <table>
+            <tr>
+                <th>Usuario</th>
+                <th>Total Créditos</th>
+            </tr>
+            {% for row in top_usuarios_creditos %}
+            <tr>
+                <td>{{ row.nickname }}</td>
+                <td>{{ row.total_creditos }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <h3>Transacciones</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID Transacción</th>
+                    <th>Origen</th>
+                    <th>Destino</th>
+                    <th>Descripción</th>
+                    <th>Tipo de Transacción</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for transaccion in transacciones %}
+                <tr>
+                    <td>{{ transaccion.id_transaccion }}</td>
+                    <td>{{ transaccion.origen }}</td>
+                    <td>{{ transaccion.destino }}</td>
+                    <td>{{ transaccion.descripcion }}</td>
+                    <td>{{ transaccion.id_tipo_transaccion }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <h3>Compras</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID Compra</th>
+                    <th>ID Jugador</th>
+                    <th>ID Paquete</th>
+                    <th>Fecha</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for compra in compras %}
+                <tr>
+                    <td>{{ compra.id_compra }}</td>
+                    <td>{{ compra.id_jugador }}</td>
+                    <td>{{ compra.id_paquete }}</td>
+                    <td>{{ compra.fecha }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="{{ url_for('routes.logout') }}">Cerrar Sesión</a>
+    </div>
+</body>
+</html>
+

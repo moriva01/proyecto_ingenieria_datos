@@ -1,10 +1,11 @@
 # app/routes.py
 
-from flask import Blueprint, render_template, request, redirect, url_for, flash
+from flask import Blueprint, render_template, request, redirect, url_for, flash, session, make_response
 from flask_login import login_user, logout_user, login_required, current_user
 from .models import db, Jugador, Wallet, Inventario, Objeto, Transaccion, Apuesta, PaqueteCreditos, Compra
 import random
 from datetime import datetime, timedelta
+from sqlalchemy import text 
 
 # Definimos el Blueprint de rutas
 routes = Blueprint('routes', __name__)
@@ -316,6 +317,11 @@ def login():
         nickname = request.form['nickname']
         contrasena = request.form['contrasena']
         
+        # Verificar si el usuario es el administrador
+        if nickname == "ADMIN" and contrasena == "Admin123456*":
+            session['is_admin'] = True
+            return redirect(url_for('routes.admin'))
+
         # Buscar al jugador en la base de datos por su nickname
         jugador = Jugador.query.filter_by(nickname=nickname).first()
         
@@ -325,17 +331,65 @@ def login():
             login_user(jugador)
             return redirect(url_for('routes.home'))  # Redirige al inicio si es exitoso
         else:
-            return render_template('login.html', error="Nickname o contraseña incorrecta")
+            flash("Nickname o contraseña incorrecta", "error")
+            return render_template('login.html')
     
     # Si es una petición GET, renderiza el formulario de login
     return render_template('login.html')
 
+@routes.route('/admin')
+def admin():
+    # Verificar si el usuario es admin
+    if not session.get('is_admin'):
+        flash("Acceso no autorizado", "error")
+        return redirect(url_for('routes.login'))
+
+    # Consultas de datos del cubo OLAP
+    compras_por_hora = db.session.execute(text("""
+        SELECT dt.hora, COUNT(fc.id_compra) AS total_compras
+        FROM fact_compras fc
+        JOIN dim_tiempo dt ON fc.id_tiempo = dt.id_tiempo
+        GROUP BY dt.hora
+        ORDER BY total_compras DESC
+        LIMIT 5;
+    """)).fetchall()
+
+    porcentaje_exito_apuestas = db.session.execute(text("""
+        SELECT du.nickname,
+               SUM(CASE WHEN fa.resultado = 'ganado' THEN 1 ELSE 0 END) * 100.0 / COUNT(fa.id_apuesta) AS porcentaje_exito
+        FROM fact_apuestas fa
+        JOIN dim_usuario du ON fa.id_usuario = du.id_usuario
+        GROUP BY du.nickname
+        ORDER BY porcentaje_exito DESC;
+    """)).fetchall()
+
+    top_usuarios_creditos = db.session.execute(text("""
+        SELECT du.nickname, SUM(fc.cantidad_creditos + fc.bonificacion) AS total_creditos
+        FROM fact_compras fc
+        JOIN dim_usuario du ON fc.id_usuario = du.id_usuario
+        GROUP BY du.nickname
+        ORDER BY total_creditos DESC
+        LIMIT 5;
+    """)).fetchall()
+
+    # Obtener los datos de Transaccion y Compra
+    transacciones = db.session.query(Transaccion).all()
+    compras = db.session.query(Compra).all()
+
+    # Renderizar la página de administración con todos los datos
+    return render_template('admin.html', 
+                           compras_por_hora=compras_por_hora,
+                           porcentaje_exito_apuestas=porcentaje_exito_apuestas,
+                           top_usuarios_creditos=top_usuarios_creditos,
+                           transacciones=transacciones, 
+                           compras=compras)
+
 @routes.route('/logout')
-@login_required
 def logout():
-    # Cierra la sesión del usuario
-    logout_user()
+    session.pop('is_admin', None)  # Elimina la sesión del administrador
+    logout_user()  # Cierra la sesión del usuario si está autenticado
     return redirect(url_for('routes.login'))
+
 
 
 @routes.route('/')
