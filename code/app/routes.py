@@ -336,3 +336,8 @@ def logout():
     # Cierra la sesión del usuario
     logout_user()
     return redirect(url_for('routes.login'))
+
+
+@routes.route('/')
+def index():
+    return render_template('login.html')
