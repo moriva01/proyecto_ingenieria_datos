@@ -5,76 +5,96 @@
 <head>
     <meta charset="UTF-8">
     <title>Compra y Venta de Recursos</title>
+    <!-- Enlace a SweetAlert desde CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h2>Compra, Venta y Transferencia de Recursos</h2>
+    <div class="container">
+        <h2>Compra y Venta de Recursos</h2>
 
-    <h3>Créditos en Wallet: {{ wallet.creditos }}</h3>
+        <h3>Créditos en Wallet: {{ wallet.creditos }}</h3>
 
-    <!-- Formulario para comprar recursos -->
-    <h3>Comprar Recursos (por stack)</h3>
-    <form action="{{ url_for('routes.comprar_vender') }}" method="POST">
-        <input type="hidden" name="accion" value="comprar">
-        
-        <label for="objeto_id">Selecciona un objeto:</label>
-        <select name="objeto_id" id="objeto_id">
-            {% for objeto in objetos %}
-                <option value="{{ objeto.id_objeto }}">
-                    {{ objeto.nombre_objeto }} - Precio por stack: {{ objeto.precio_stack }}
-                </option>
-            {% endfor %}
-        </select>
+        <!-- Formulario para comprar recursos -->
+        <h3>Comprar Recursos (por stack)</h3>
+        <form action="{{ url_for('routes.comprar_vender') }}" method="POST">
+            <input type="hidden" name="accion" value="comprar">
+            
+            <label for="objeto_id">Selecciona un objeto:</label>
+            <select name="objeto_id" id="objeto_id">
+                {% for objeto in objetos %}
+                    <option value="{{ objeto.id_objeto }}">
+                        {{ objeto.nombre_objeto }} - Precio por stack: {{ objeto.precio_stack }}
+                    </option>
+                {% endfor %}
+            </select>
 
-        <label for="cantidad_stack">Cantidad (en stacks):</label>
-        <input type="number" name="cantidad_stack" id="cantidad_stack" min="1" required>
+            <label for="cantidad_stack">Cantidad (en stacks):</label>
+            <input type="number" name="cantidad_stack" id="cantidad_stack" min="1" required>
 
-        <button type="submit">Comprar</button>
-    </form>
+            <button type="submit">Comprar</button>
+        </form>
 
-    <!-- Formulario para vender recursos -->
-    <h3>Vender Recursos (por unidad)</h3>
-    <form action="{{ url_for('routes.comprar_vender') }}" method="POST">
-        <input type="hidden" name="accion" value="vender">
+        <!-- Formulario para vender recursos -->
+        <h3>Vender Recursos (por unidad)</h3>
+        <form action="{{ url_for('routes.comprar_vender') }}" method="POST">
+            <input type="hidden" name="accion" value="vender">
 
-        <label for="objeto_id">Selecciona un objeto:</label>
-        <select name="objeto_id" id="objeto_id">
-            {% for objeto in objetos %}
-                <option value="{{ objeto.id_objeto }}">
-                    {{ objeto.nombre_objeto }} - Precio unitario: {{ objeto.precio_stack / objeto.cantidad_max }}
-                </option>
-            {% endfor %}
-        </select>
+            <label for="objeto_id">Selecciona un objeto:</label>
+            <select name="objeto_id" id="objeto_id">
+                {% for objeto in objetos %}
+                    <option value="{{ objeto.id_objeto }}">
+                        {{ objeto.nombre_objeto }} - Precio unitario: {{ objeto.precio_stack / objeto.cantidad_max }}
+                    </option>
+                {% endfor %}
+            </select>
 
-        <label for="cantidad_unidades">Cantidad (en unidades):</label>
-        <input type="number" name="cantidad_unidades" id="cantidad_unidades" min="1" required>
+            <label for="cantidad_unidades">Cantidad (en unidades):</label>
+            <input type="number" name="cantidad_unidades" id="cantidad_unidades" min="1" required>
 
-        <button type="submit">Vender</button>
-    </form>
+            <button type="submit">Vender</button>
+        </form>
 
-    <!-- Formulario para transferir recursos -->
-    <h3>Transferir Recursos (por unidad)</h3>
-    <form action="{{ url_for('routes.comprar_vender') }}" method="POST">
-        <input type="hidden" name="accion" value="transferir">
+        <!-- Formulario para transferir recursos -->
+        <h3>Transferir Recursos (por unidad)</h3>
+        <form action="{{ url_for('routes.comprar_vender') }}" method="POST">
+            <input type="hidden" name="accion" value="transferir">
 
-        <label for="objeto_id">Selecciona un objeto:</label>
-        <select name="objeto_id" id="objeto_id">
-            {% for objeto in objetos %}
-                <option value="{{ objeto.id_objeto }}">
-                    {{ objeto.nombre_objeto }}
-                </option>
-            {% endfor %}
-        </select>
+            <label for="objeto_id">Selecciona un objeto:</label>
+            <select name="objeto_id" id="objeto_id">
+                {% for objeto in objetos %}
+                    <option value="{{ objeto.id_objeto }}">
+                        {{ objeto.nombre_objeto }}
+                    </option>
+                {% endfor %}
+            </select>
 
-        <label for="cantidad_unidades">Cantidad (en unidades):</label>
-        <input type="number" name="cantidad_unidades" id="cantidad_unidades" min="1" required>
+            <label for="cantidad_unidades">Cantidad (en unidades):</label>
+            <input type="number" name="cantidad_unidades" id="cantidad_unidades" min="1" required>
 
-        <label for="nickname_destinatario">Nickname del destinatario:</label>
-        <input type="text" name="nickname_destinatario" id="nickname_destinatario" required>
+            <label for="nickname_destinatario">Nickname del destinatario:</label>
+            <input type="text" name="nickname_destinatario" id="nickname_destinatario" required>
 
-        <button type="submit">Transferir</button>
-    </form>
+            <button type="submit">Transferir</button>
+        </form>
 
-    <a href="{{ url_for('routes.home') }}">Volver a Inicio</a>
+        <a href="{{ url_for('routes.home') }}">Volver a Inicio</a>
+    </div>
+
+    <!-- SweetAlert para mensajes flash -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <script>
+                {% for category, message in messages %}
+                    Swal.fire({
+                        icon: "{{ 'success' if category == 'success' else 'error' }}",
+                        title: "{{ message }}",
+                        showConfirmButton: true,
+                        confirmButtonText: 'Cerrar'
+                    });
+                {% endfor %}
+            </script>
+        {% endif %}
+    {% endwith %}
 </body>
 </html>

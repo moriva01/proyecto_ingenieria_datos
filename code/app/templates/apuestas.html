@@ -5,27 +5,47 @@
 <head>
     <meta charset="UTF-8">
     <title>Apuestas</title>
+    <!-- Enlace a SweetAlert desde CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h2>Apuestas</h2>
+    <div class="container">
+        <h2>Apuestas</h2>
 
-    <form action="{{ url_for('routes.apuestas') }}" method="POST">
-        <label for="objeto_id">Selecciona un recurso para apostar:</label>
-        <select name="objeto_id" id="objeto_id">
-            {% for objeto, cantidad in inventario %}
-                <option value="{{ objeto.id_objeto }}">
-                    {{ objeto.nombre_objeto }} - Cantidad: {{ cantidad }}
-                </option>
-            {% endfor %}
-        </select>
+        <form action="{{ url_for('routes.apuestas') }}" method="POST">
+            <label for="objeto_id">Selecciona un recurso para apostar:</label>
+            <select name="objeto_id" id="objeto_id">
+                {% for objeto, cantidad in inventario %}
+                    <option value="{{ objeto.id_objeto }}">
+                        {{ objeto.nombre_objeto }} - Cantidad: {{ cantidad }}
+                    </option>
+                {% endfor %}
+            </select>
 
-        <label for="cantidad">Cantidad a apostar:</label>
-        <input type="number" name="cantidad" id="cantidad" min="1" required>
+            <label for="cantidad">Cantidad a apostar:</label>
+            <input type="number" name="cantidad" id="cantidad" min="1" required>
 
-        <button type="submit">Apostar</button>
-    </form>
+            <button type="submit">Apostar</button>
+        </form>
 
-    <a href="{{ url_for('routes.home') }}">Volver a Inicio</a>
+        <a href="{{ url_for('routes.home') }}">Volver a Inicio</a>
+    </div>
+
+    <!-- SweetAlert para mensajes flash -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <script>
+                {% for category, message in messages %}
+                    Swal.fire({
+                        icon: "{{ 'success' if category == 'success' else 'error' }}",
+                        title: "{{ message }}",
+                        showConfirmButton: true,
+                        confirmButtonText: 'Cerrar'
+                    });
+                {% endfor %}
+            </script>
+        {% endif %}
+    {% endwith %}
 </body>
 </html>

@@ -103,8 +103,6 @@ def apuesta_dispensador():
         ultima_apuesta_dispensador = ahora
 
 
-
-
 @routes.route('/comprar_creditos', methods=['GET', 'POST'])
 @login_required
 def comprar_creditos():
@@ -144,7 +142,7 @@ def comprar_creditos():
         db.session.commit()
 
         flash("Créditos comprados con éxito", "success")
-        return redirect(url_for('routes.home'))
+        return redirect(url_for('routes.comprar_creditos'))
 
     return render_template('comprar_creditos.html', paquetes=paquetes, wallet=wallet)
 
