@@ -1,7 +1,7 @@
 /* Estilo general */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-image: url('../static/images/back.png'); /* Ruta relativa a tu carpeta de imágenes */
+    background-image: url('../static/images/back.png'); /* Ruta relativa a tu carpeta de imÃ¡genes */
     background-size: cover; /* Ajusta la imagen para cubrir toda la pantalla */
     background-position: center; /* Centra la imagen */
     background-repeat: no-repeat; /* Evita que la imagen se repita */
@@ -13,7 +13,7 @@ body {
 
 /* Contenedor principal */
 .main-content {
-    max-width: 90%; /* Aprovecha más el espacio */
+    max-width: 90%; /* Aprovecha mÃ¡s el espacio */
     margin: 30px auto;
     padding: 20px;
     background-color: rgba(255, 255, 255, 0.9); /* Fondo semitransparente */
@@ -33,6 +33,34 @@ h3 {
     color: #2196F3;
     font-weight: 600;
     margin-bottom: 10px;
+}
+
+/* Contenedor de secciÃ³n */
+.container {
+    width: 90%;
+    max-width: 850px;
+    margin: 30px auto;
+    padding: 25px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.container:hover {
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+}
+
+/* Estilo de enlaces */
+a {
+    color: #2196F3;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+a:hover {
+    color: #1976D2;
 }
 
 /* Estilo de botones */
@@ -59,7 +87,7 @@ button:active, input[type="submit"]:active, .btn-primary:active, .btn-secondary:
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-/* Estilo de botones específicos */
+/* Estilo de botones especÃ­ficos */
 .btn-primary {
     background-color: #4CAF50;
 }
@@ -76,39 +104,23 @@ button:active, input[type="submit"]:active, .btn-primary:active, .btn-secondary:
     background-color: #fb8c00;
 }
 
-/* Sección de navegación */
-.navigation {
-    display: flex;
-    justify-content: space-evenly; /* Alinea los enlaces con un espacio uniforme */
-    margin-top: 20px;
-}
-
-.navigation a {
-    text-align: center;
-    padding: 15px 30px;
-    font-size: 16px;
-    border-radius: 6px;
-    transition: transform 0.3s ease;
-}
-
-.navigation a:hover {
-    transform: scale(1.1); /* Aumenta ligeramente el tamaño del botón al pasar el mouse */
-}
-
 /* Estilo de formularios */
 form {
     display: flex;
     flex-direction: column;
     gap: 12px;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    font-weight: 600;
+    margin-top: 8px;
+    color: #555;
 }
 
 /* Recuadro blanco para los campos de entrada */
 .input-container {
     margin-bottom: 15px;
-    background-color: #ffffff; /* Fondo blanco para los campos de entrada */
+    background-color: #ffffff;
     padding: 10px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -200,7 +212,25 @@ tr:hover {
     font-weight: 600;
 }
 
-/* Estilo de las secciones */
+/* Estilo de botones de navegaciÃ³n */
+.navigation {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.navigation a {
+    width: 45%;
+    text-align: center;
+    padding: 20px;
+}
+
+.navigation a:hover {
+    transform: scale(1.1);
+}
+
+/* SecciÃ³n de crÃ©ditos */
 .wallet-section {
     margin-bottom: 30px;
 }
@@ -209,4 +239,31 @@ tr:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+/* SecciÃ³n de inventario */
+.inventory-section table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 25px;
+}
+
+th, td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+    font-size: 16px;
+}
+
+th {
+    background-color: #2196F3;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f7f7f7;
+}
+
+tr:hover {
+    background-color: #e3f2fd;
 }
