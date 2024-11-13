@@ -4,15 +4,13 @@ body {
 
    body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(45deg, #f1f1f1 25%, transparent 25%) -50px 0,
-                linear-gradient(45deg, #f1f1f1 25%, transparent 25%) 0 0,
-                linear-gradient(45deg, transparent 75%, #f1f1f1 75%) -50px 0,
-                linear-gradient(45deg, transparent 75%, #f1f1f1 75%) 0 0;
-    background-size: 100px 100px; /* Define el tamaño del patrón */
-    background-color: #e0e0e0; /* Color de fondo si no hay imagen */
+    background: linear-gradient(to right, #2196F3, #4CAF50);  /* Degradado de azul a verde */
     color: #333;
     margin: 0;
     padding: 0;
+
+
+   
 }
 
 }
