@@ -11,14 +11,14 @@ body {
     padding: 0;
 }
 
-/* Contenedor general para un contraste legible */
+/* Contenedor principal */
 .main-content {
-    max-width: 850px;
+    max-width: 90%; /* Aprovecha más el espacio */
     margin: 30px auto;
     padding: 20px;
     background-color: rgba(255, 255, 255, 0.9); /* Fondo semitransparente */
-    border-radius: 15px; /* Bordes redondeados */
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Sombra para resaltar */
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 /* Encabezados */
@@ -35,7 +35,7 @@ h3 {
     margin-bottom: 10px;
 }
 
-/* Contenedor principal */
+/* Contenedor de sección */
 .container {
     width: 90%;
     max-width: 850px;
@@ -64,7 +64,7 @@ a:hover {
 }
 
 /* Estilo de botones */
-button, input[type="submit"] {
+button, input[type="submit"], .btn-primary, .btn-secondary {
     background-color: #2196F3;
     color: white;
     padding: 12px 25px;
@@ -77,14 +77,31 @@ button, input[type="submit"] {
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
 }
 
-button:hover, input[type="submit"]:hover {
+button:hover, input[type="submit"]:hover, .btn-primary:hover, .btn-secondary:hover {
     background-color: #1976D2;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
 }
 
-button:active, input[type="submit"]:active {
+button:active, input[type="submit"]:active, .btn-primary:active, .btn-secondary:active {
     background-color: #0d47a1;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilo de botones específicos */
+.btn-primary {
+    background-color: #4CAF50;
+}
+
+.btn-primary:hover {
+    background-color: #45a049;
+}
+
+.btn-secondary {
+    background-color: #FF9800;
+}
+
+.btn-secondary:hover {
+    background-color: #fb8c00;
 }
 
 /* Estilo de formularios */
@@ -102,18 +119,18 @@ label {
 
 /* Recuadro blanco para los campos de entrada */
 .input-container {
-    margin-bottom: 15px; /* Espacio entre los campos */
-    background-color: #ffffff; /* Fondo blanco */
-    padding: 10px; /* Espaciado dentro del recuadro */
-    border-radius: 8px; /* Bordes redondeados */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil para el recuadro */
+    margin-bottom: 15px;
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .input-container label {
     font-weight: bold;
-    color: #333; /* Color de texto */
+    color: #333;
     display: block;
-    margin-bottom: 8px; /* Espacio debajo de la etiqueta */
+    margin-bottom: 8px;
 }
 
 /* Estilo para los campos de entrada */
@@ -130,8 +147,8 @@ input[type="password"] {
 
 input[type="text"]:focus,
 input[type="password"]:focus {
-    border-color: #2196F3; /* Color del borde al enfocar */
-    box-shadow: 0 0 4px rgba(33, 150, 243, 0.3); /* Sombra sutil al enfocar */
+    border-color: #2196F3;
+    box-shadow: 0 0 4px rgba(33, 150, 243, 0.3);
 }
 
 /* Estilo de tablas */
@@ -193,4 +210,60 @@ tr:hover {
     margin-bottom: 20px;
     border: 1px solid #bee5eb;
     font-weight: 600;
+}
+
+/* Estilo de botones de navegación */
+.navigation {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.navigation a {
+    width: 45%;
+    text-align: center;
+    padding: 20px;
+}
+
+.navigation a:hover {
+    transform: scale(1.1);
+}
+
+/* Sección de créditos */
+.wallet-section {
+    margin-bottom: 30px;
+}
+
+.wallet-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Sección de inventario */
+.inventory-section table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 25px;
+}
+
+th, td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+    font-size: 16px;
+}
+
+th {
+    background-color: #2196F3;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f7f7f7;
+}
+
+tr:hover {
+    background-color: #e3f2fd;
 }
