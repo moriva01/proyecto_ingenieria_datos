@@ -2,8 +2,8 @@
 body {
  
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: url('/static/texture.webp'), /* Imagen de fondo */
-                linear-gradient(45deg, #2196F3, #4CAF50); /* Degradado */
+   
+    linear-gradient(45deg, #2196F3, #4CAF50); /* Degradado */
     background-size: cover; /* Para que la imagen cubra todo el fondo */
     background-repeat: repeat; /* Hace que la imagen se repita */
     background-color: #e0e0e0; /* Color de fondo de respaldo */
