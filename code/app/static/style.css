@@ -1,15 +1,17 @@
 /* Estilo general */
 body {
  
+
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-   
-    linear-gradient(45deg, #2196F3, #4CAF50); /* Degradado */
-    background-size: cover; /* Para que la imagen cubra todo el fondo */
-    background-repeat: repeat; /* Hace que la imagen se repita */
-    background-color: #e0e0e0; /* Color de fondo de respaldo */
+   background-image: url('../static/images/back.png'); /* Ruta relativa a tu carpeta de imágenes */
+    background-size: cover; /* Ajusta la imagen para cubrir toda la pantalla */
+    background-position: center; /* Centra la imagen */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-attachment: fixed; /* Mantiene la imagen fija al hacer scroll */
     color: #333;
     margin: 0;
     padding: 0;
+
 
 
 }
