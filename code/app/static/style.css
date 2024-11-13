@@ -1,7 +1,7 @@
 /* Estilo general */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-image: url('../static/images/back.png'); /* Ruta relativa a tu carpeta de imÃ¡genes */
+    background-image: url('../static/images/back.png'); /* Ruta relativa a tu carpeta de imágenes */
     background-size: cover; /* Ajusta la imagen para cubrir toda la pantalla */
     background-position: center; /* Centra la imagen */
     background-repeat: no-repeat; /* Evita que la imagen se repita */
@@ -13,7 +13,7 @@ body {
 
 /* Contenedor principal */
 .main-content {
-    max-width: 90%; /* Aprovecha mÃ¡s el espacio */
+    max-width: 90%; /* Aprovecha más el espacio */
     margin: 30px auto;
     padding: 20px;
     background-color: rgba(255, 255, 255, 0.9); /* Fondo semitransparente */
@@ -35,7 +35,7 @@ h3 {
     margin-bottom: 10px;
 }
 
-/* Contenedor de secciÃ³n */
+/* Contenedor de sección */
 .container {
     width: 90%;
     max-width: 850px;
@@ -87,7 +87,7 @@ button:active, input[type="submit"]:active, .btn-primary:active, .btn-secondary:
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-/* Estilo de botones especÃ­ficos */
+/* Estilo de botones específicos */
 .btn-primary {
     background-color: #4CAF50;
 }
@@ -212,25 +212,35 @@ tr:hover {
     font-weight: 600;
 }
 
-/* Estilo de botones de navegaciÃ³n */
+/* Estilo de botones de navegación */
 .navigation {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-between; /* Alinea los botones en una línea */
     margin-top: 20px;
 }
 
 .navigation a {
-    width: 45%;
+    padding: 10px 20px; /* Tamaño reducido para los botones */
+    font-size: 14px; /* Tamaño de texto reducido */
     text-align: center;
-    padding: 20px;
+    background-color: #2196F3;
+    color: white;
+    border-radius: 6px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .navigation a:hover {
-    transform: scale(1.1);
+    background-color: #1976D2;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
 }
 
-/* SecciÃ³n de crÃ©ditos */
+.navigation a:active {
+    background-color: #0d47a1;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Sección de créditos */
 .wallet-section {
     margin-bottom: 30px;
 }
@@ -239,31 +249,4 @@ tr:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-/* SecciÃ³n de inventario */
-.inventory-section table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 25px;
-}
-
-th, td {
-    padding: 12px;
-    border: 1px solid #ddd;
-    text-align: left;
-    font-size: 16px;
-}
-
-th {
-    background-color: #2196F3;
-    color: white;
-}
-
-tr:nth-child(even) {
-    background-color: #f7f7f7;
-}
-
-tr:hover {
-    background-color: #e3f2fd;
 }
