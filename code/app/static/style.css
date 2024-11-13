@@ -41,7 +41,7 @@ h3 {
     max-width: 850px;
     margin: 30px auto;
     padding: 25px;
-    background-color: #ffffff;
+    background-color: #ffffff; /* Fondo blanco sólido */
     border-radius: 12px;
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
@@ -249,4 +249,12 @@ tr:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+/* Fondo semitransparente para las páginas específicas */
+.admin-apuesta, .comprar-creditos, .comprar-vender {
+    background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco transparente */
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
 }
