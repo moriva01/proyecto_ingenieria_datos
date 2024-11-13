@@ -1,159 +1,124 @@
 /* Estilo general */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #e0e0e0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
     color: #333;
     margin: 0;
     padding: 0;
 }
 
-/* Encabezados */
 h2 {
     text-align: center;
-    color: #2196F3;
-    font-weight: 700;
-    margin-bottom: 20px;
+    color: #4CAF50;
 }
 
-/* Contenedor principal */
 .container {
-    width: 90%;
-    max-width: 850px;
-    margin: 30px auto;
-    padding: 25px;
-    background-color: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-}
-
-.container:hover {
-    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+    width: 80%;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Estilo de enlaces */
 a {
-    color: #2196F3;
+    color: #4CAF50;
     text-decoration: none;
-    font-weight: 600;
-    transition: color 0.2s;
+    font-weight: bold;
 }
 
 a:hover {
-    color: #1976D2;
+    color: #388E3C;
 }
 
 /* Estilo de botones */
 button, input[type="submit"] {
-    background-color: #2196F3;
+    background-color: #4CAF50;
     color: white;
-    padding: 12px 25px;
+    padding: 10px 20px;
     border: none;
-    border-radius: 6px;
+    border-radius: 4px;
     cursor: pointer;
     font-size: 16px;
-    font-weight: 500;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
 }
 
 button:hover, input[type="submit"]:hover {
-    background-color: #1976D2;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
-}
-
-button:active, input[type="submit"]:active {
-    background-color: #0d47a1;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    background-color: #388E3C;
 }
 
 /* Estilo de formularios */
 form {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 10px;
 }
 
 label {
-    font-weight: 600;
-    margin-top: 8px;
-    color: #555;
+    font-weight: bold;
+    margin-top: 10px;
 }
 
 input[type="text"],
 input[type="number"],
 select {
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 16px;
-    transition: border-color 0.2s, box-shadow 0.2s;
-}
-
-input[type="text"]:focus,
-input[type="number"]:focus,
-select:focus {
-    border-color: #2196F3;
-    box-shadow: 0 0 4px rgba(33, 150, 243, 0.3);
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
 
 /* Estilo de tablas */
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 25px;
-    overflow: hidden;
-    border-radius: 8px;
+    margin-top: 20px;
 }
 
 th, td {
-    padding: 14px;
-    border: 1px solid #e0e0e0;
+    padding: 12px;
+    border: 1px solid #ddd;
     text-align: left;
-    font-size: 15px;
 }
 
 th {
-    background-color: #2196F3;
+    background-color: #4CAF50;
     color: white;
     font-weight: bold;
 }
 
 tr:nth-child(even) {
-    background-color: #f7f7f7;
+    background-color: #f9f9f9;
 }
 
 tr:hover {
-    background-color: #e3f2fd;
+    background-color: #f1f1f1;
 }
 
 /* Estilo de mensajes flash */
 .flash-success {
     background-color: #d4edda;
     color: #155724;
-    padding: 15px;
-    border-radius: 8px;
+    padding: 10px;
+    border-radius: 4px;
     margin-bottom: 20px;
     border: 1px solid #c3e6cb;
-    font-weight: 600;
 }
 
 .flash-error {
     background-color: #f8d7da;
     color: #721c24;
-    padding: 15px;
-    border-radius: 8px;
+    padding: 10px;
+    border-radius: 4px;
     margin-bottom: 20px;
     border: 1px solid #f5c6cb;
-    font-weight: 600;
 }
 
 .flash-info {
     background-color: #d1ecf1;
     color: #0c5460;
-    padding: 15px;
-    border-radius: 8px;
+    padding: 10px;
+    border-radius: 4px;
     margin-bottom: 20px;
     border: 1px solid #bee5eb;
-    font-weight: 600;
 }
