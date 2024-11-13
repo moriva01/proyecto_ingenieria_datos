@@ -41,7 +41,7 @@ h3 {
     max-width: 850px;
     margin: 30px auto;
     padding: 25px;
-    background-color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.9); /* Fondo semitransparente */
     border-radius: 12px;
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
@@ -51,16 +51,117 @@ h3 {
     box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
 }
 
-/* Estilo de enlaces */
-a {
-    color: #2196F3;
-    text-decoration: none;
-    font-weight: 600;
-    transition: color 0.2s;
+/* Estilo de tablas */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 25px;
+    overflow: hidden;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.9); /* Fondo semitransparente en tablas */
 }
 
-a:hover {
-    color: #1976D2;
+th, td {
+    padding: 14px;
+    border: 1px solid #e0e0e0;
+    text-align: left;
+    font-size: 15px;
+}
+
+th {
+    background-color: #2196F3;
+    color: white;
+    font-weight: bold;
+}
+
+tr:nth-child(even) {
+    background-color: #f7f7f7;
+}
+
+tr:hover {
+    background-color: #e3f2fd;
+}
+
+/* Estilo de formularios */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background-color: rgba(255, 255, 255, 0.9); /* Fondo semi-transparente en formularios */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    font-weight: 600;
+    margin-top: 8px;
+    color: #555;
+}
+
+/* Recuadro blanco para los campos de entrada */
+.input-container {
+    margin-bottom: 15px;
+    background-color: rgba(255, 255, 255, 0.9); /* Fondo semi-transparente en contenedor de entrada */
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.input-container label {
+    font-weight: bold;
+    color: #333;
+    display: block;
+    margin-bottom: 8px;
+}
+
+/* Estilo para los campos de entrada */
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+    transition: border-color 0.2s;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border-color: #2196F3;
+    box-shadow: 0 0 4px rgba(33, 150, 243, 0.3);
+}
+
+/* Estilo de mensajes flash */
+.flash-success {
+    background-color: rgba(212, 237, 218, 0.9);
+    color: #155724;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #c3e6cb;
+    font-weight: 600;
+}
+
+.flash-error {
+    background-color: rgba(248, 215, 218, 0.9);
+    color: #721c24;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #f5c6cb;
+    font-weight: 600;
+}
+
+.flash-info {
+    background-color: rgba(209, 236, 241, 0.9);
+    color: #0c5460;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #bee5eb;
+    font-weight: 600;
 }
 
 /* Estilo de botones */
@@ -104,115 +205,7 @@ button:active, input[type="submit"]:active, .btn-primary:active, .btn-secondary:
     background-color: #fb8c00;
 }
 
-/* Estilo de formularios */
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-label {
-    font-weight: 600;
-    margin-top: 8px;
-    color: #555;
-}
-
-/* Recuadro blanco para los campos de entrada */
-.input-container {
-    margin-bottom: 15px;
-    background-color: #ffffff;
-    padding: 10px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.input-container label {
-    font-weight: bold;
-    color: #333;
-    display: block;
-    margin-bottom: 8px;
-}
-
-/* Estilo para los campos de entrada */
-input[type="text"],
-input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    box-sizing: border-box;
-    transition: border-color 0.2s;
-}
-
-input[type="text"]:focus,
-input[type="password"]:focus {
-    border-color: #2196F3;
-    box-shadow: 0 0 4px rgba(33, 150, 243, 0.3);
-}
-
-/* Estilo de tablas */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 25px;
-    overflow: hidden;
-    border-radius: 8px;
-}
-
-th, td {
-    padding: 14px;
-    border: 1px solid #e0e0e0;
-    text-align: left;
-    font-size: 15px;
-}
-
-th {
-    background-color: #2196F3;
-    color: white;
-    font-weight: bold;
-}
-
-tr:nth-child(even) {
-    background-color: #f7f7f7;
-}
-
-tr:hover {
-    background-color: #e3f2fd;
-}
-
-/* Estilo de mensajes flash */
-.flash-success {
-    background-color: #d4edda;
-    color: #155724;
-    padding: 15px;
-    border-radius: 8px;
-    margin-bottom: 20px;
-    border: 1px solid #c3e6cb;
-    font-weight: 600;
-}
-
-.flash-error {
-    background-color: #f8d7da;
-    color: #721c24;
-    padding: 15px;
-    border-radius: 8px;
-    margin-bottom: 20px;
-    border: 1px solid #f5c6cb;
-    font-weight: 600;
-}
-
-.flash-info {
-    background-color: #d1ecf1;
-    color: #0c5460;
-    padding: 15px;
-    border-radius: 8px;
-    margin-bottom: 20px;
-    border: 1px solid #bee5eb;
-    font-weight: 600;
-}
-
-/* Estilo de botones de navegación */
+/* Estilo de navegación */
 .navigation {
     display: flex;
     flex-wrap: wrap;
