@@ -97,7 +97,6 @@ form {
     display: flex;
     flex-direction: column;
     gap: 12px;
-    /* Se quita el fondo semi-transparente aquí */
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -106,7 +105,7 @@ form {
 /* Recuadro blanco para los campos de entrada */
 .input-container {
     margin-bottom: 15px;
-    background-color: rgba(255, 255, 255, 0.9); /* Fondo semi-transparente en contenedor de entrada */
+    background-color: #ffffff; /* Fondo blanco para los campos de entrada */
     padding: 10px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -144,7 +143,6 @@ table {
     margin-top: 25px;
     overflow: hidden;
     border-radius: 8px;
-    background-color: rgba(255, 255, 255, 0.9); /* Fondo semitransparente en tablas */
 }
 
 th, td {
@@ -170,7 +168,7 @@ tr:hover {
 
 /* Estilo de mensajes flash */
 .flash-success {
-    background-color: rgba(212, 237, 218, 0.9);
+    background-color: #d4edda;
     color: #155724;
     padding: 15px;
     border-radius: 8px;
@@ -180,7 +178,7 @@ tr:hover {
 }
 
 .flash-error {
-    background-color: rgba(248, 215, 218, 0.9);
+    background-color: #f8d7da;
     color: #721c24;
     padding: 15px;
     border-radius: 8px;
@@ -190,11 +188,40 @@ tr:hover {
 }
 
 .flash-info {
-    background-color: rgba(209, 236, 241, 0.9);
+    background-color: #d1ecf1;
     color: #0c5460;
     padding: 15px;
     border-radius: 8px;
     margin-bottom: 20px;
     border: 1px solid #bee5eb;
     font-weight: 600;
+}
+
+/* Sección de navegación */
+.navigation {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.navigation a {
+    width: 45%;
+    text-align: center;
+    padding: 20px;
+}
+
+.navigation a:hover {
+    transform: scale(1.1);
+}
+
+/* Sección de créditos */
+.wallet-section {
+    margin-bottom: 30px;
+}
+
+.wallet-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
