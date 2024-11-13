@@ -1,129 +1,168 @@
+/* Estilo general */
+body {
+ 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   
+    linear-gradient(45deg, #2196F3, #4CAF50); /* Degradado */
+    background-size: cover; /* Para que la imagen cubra todo el fondo */
+    background-repeat: repeat; /* Hace que la imagen se repita */
+    background-color: #e0e0e0; /* Color de fondo de respaldo */
+    color: #333;
+    margin: 0;
+    padding: 0;
+
+
+}
+
+
+
+/* Encabezados */
+h2 {
+    text-align: center;
+    color: #2196F3;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
 /* Contenedor principal */
-.main-container {
+.container {
     width: 90%;
     max-width: 850px;
     margin: 30px auto;
-    padding: 20px;
+    padding: 25px;
     background-color: #ffffff;
     border-radius: 12px;
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
 }
 
-/* Estilo del encabezado */
-.header {
-    text-align: center;
-    padding-bottom: 10px;
-    border-bottom: 2px solid #e0e0e0;
+.container:hover {
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
 }
 
-.header h2 {
+/* Estilo de enlaces */
+a {
     color: #2196F3;
-    font-weight: 700;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s;
 }
 
-.welcome-msg {
-    color: #666;
-    font-size: 14px;
+a:hover {
+    color: #1976D2;
 }
 
-/* Sección de wallet */
-.wallet-section {
-    margin-top: 20px;
-    text-align: center;
+/* Estilo de botones */
+button, input[type="submit"] {
+    background-color: #2196F3;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
 }
 
-.wallet-info {
-    background-color: #f0f4f8;
-    padding: 15px;
+button:hover, input[type="submit"]:hover {
+    background-color: #1976D2;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+button:active, input[type="submit"]:active {
+    background-color: #0d47a1;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilo de formularios */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+label {
+    font-weight: 600;
+    margin-top: 8px;
+    color: #555;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+select:focus {
+    border-color: #2196F3;
+    box-shadow: 0 0 4px rgba(33, 150, 243, 0.3);
+}
+
+/* Estilo de tablas */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 25px;
+    overflow: hidden;
     border-radius: 8px;
-    display: inline-block;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
-.wallet-credits {
-    font-size: 1.5em;
-    color: #4CAF50;
+th, td {
+    padding: 14px;
+    border: 1px solid #e0e0e0;
+    text-align: left;
+    font-size: 15px;
+}
+
+th {
+    background-color: #2196F3;
+    color: white;
     font-weight: bold;
 }
 
-/* Sección de inventario */
-.inventory-section h3 {
-    text-align: left;
-    color: #2196F3;
-    font-weight: 700;
-    margin-top: 20px;
-}
-
-.inventory-section table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 10px;
-}
-
-.inventory-section th, .inventory-section td {
-    padding: 12px;
-    border: 1px solid #e0e0e0;
-    text-align: center;
-}
-
-.inventory-section th {
-    background-color: #2196F3;
-    color: white;
-}
-
-.inventory-section tr:nth-child(even) {
+tr:nth-child(even) {
     background-color: #f7f7f7;
 }
 
-.inventory-section tr:hover {
+tr:hover {
     background-color: #e3f2fd;
 }
 
-/* Estilo de los botones */
-.btn-primary {
-    display: inline-block;
-    background-color: #2196F3;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 6px;
-    font-weight: 500;
-    margin-top: 10px;
-    text-decoration: none;
-    transition: background-color 0.3s;
+/* Estilo de mensajes flash */
+.flash-success {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #c3e6cb;
+    font-weight: 600;
 }
 
-.btn-primary:hover {
-    background-color: #1976D2;
+.flash-error {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #f5c6cb;
+    font-weight: 600;
 }
 
-.btn-secondary {
-    display: inline-block;
-    margin: 10px 5px;
-    background-color: #f0f4f8;
-    color: #2196F3;
-    padding: 10px 15px;
-    border-radius: 6px;
-    font-weight: 500;
-    text-decoration: none;
-    transition: background-color 0.3s;
-}
-
-.btn-secondary:hover {
-    background-color: #e3f2fd;
-}
-
-.logout {
-    color: #d32f2f;
-}
-
-.logout:hover {
-    background-color: #ffcdd2;
-}
-
-/* Navegación */
-.navigation {
-    text-align: center;
-    margin-top: 20px;
-    padding-top: 10px;
-    border-top: 2px solid #e0e0e0;
+.flash-info {
+    background-color: #d1ecf1;
+    color: #0c5460;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #bee5eb;
+    font-weight: 600;
 }
