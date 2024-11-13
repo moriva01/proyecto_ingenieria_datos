@@ -4,7 +4,7 @@ body {
 
    body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(to right, #2196F3, #4CAF50);  /* Degradado de azul a verde */
+ background-color: #f0f0f0;
     color: #333;
     margin: 0;
     padding: 0;
