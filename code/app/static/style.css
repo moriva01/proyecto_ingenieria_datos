@@ -6,8 +6,10 @@ body {
     margin: 0;
     padding: 0;
     font-size: 18px; /* Aumenta el tamaño de la fuente */
+    background-image: url('/static/images/deepslate-bricks.png'); /* Ruta de la imagen */
+    background-repeat: repeat; /* Hace que la imagen se repita */
+    background-size: auto; /* Mantiene el tamaño original de la imagen */
 }
-
 
 /* Encabezados */
 h2 {
