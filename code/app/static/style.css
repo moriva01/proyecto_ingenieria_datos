@@ -1,13 +1,13 @@
 /* Estilo general */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #e0e0e0;
     color: #333;
     margin: 0;
     padding: 0;
 }
 
-
+/* Encabezados */
 h2 {
     text-align: center;
     color: #2196F3;
@@ -75,7 +75,7 @@ form {
 }
 
 label {
-  
+    font-weight: 600;
     margin-top: 8px;
     color: #555;
 }
