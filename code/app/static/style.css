@@ -1,9 +1,7 @@
 /* Estilo general */
 body {
- 
-
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-   background-image: url('../static/images/back.png'); /* Ruta relativa a tu carpeta de imágenes */
+    background-image: url('../static/images/back.png'); /* Ruta relativa a tu carpeta de imágenes */
     background-size: cover; /* Ajusta la imagen para cubrir toda la pantalla */
     background-position: center; /* Centra la imagen */
     background-repeat: no-repeat; /* Evita que la imagen se repita */
@@ -11,12 +9,17 @@ body {
     color: #333;
     margin: 0;
     padding: 0;
-
-
-
 }
 
-
+/* Contenedor general para un contraste legible */
+.main-content {
+    max-width: 850px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9); /* Fondo semitransparente */
+    border-radius: 15px; /* Bordes redondeados */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Sombra para resaltar */
+}
 
 /* Encabezados */
 h2 {
@@ -24,6 +27,12 @@ h2 {
     color: #2196F3;
     font-weight: 700;
     margin-bottom: 20px;
+}
+
+h3 {
+    color: #2196F3;
+    font-weight: 600;
+    margin-bottom: 10px;
 }
 
 /* Contenedor principal */
