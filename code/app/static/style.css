@@ -7,7 +7,7 @@ body {
     padding: 0;
 }
 
-/* Encabezados */
+
 h2 {
     text-align: center;
     color: #2196F3;
@@ -75,7 +75,7 @@ form {
 }
 
 label {
-    font-weight: 600;
+  
     margin-top: 8px;
     color: #555;
 }
