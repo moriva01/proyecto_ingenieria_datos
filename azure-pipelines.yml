@@ -1,0 +1,57 @@
+# azure-pipelines.yml
+
+trigger:
+  branches:
+    include:
+      - main
+
+stages:
+  - stage: Build
+    jobs:
+      - job: Build
+        pool:
+          vmImage: 'ubuntu-latest'
+        
+        steps:
+          - task: UsePythonVersion@0
+            inputs:
+              versionSpec: '3.x'
+              addToPath: true
+
+          - script: |
+              python -m pip install --upgrade pip
+              pip install -r requirements.txt
+            displayName: 'Install Python dependencies'
+
+          - task: DockerCompose@0
+            inputs:
+              action: 'Build services'
+              dockerComposeFile: '**/docker-compose.yml'
+              projectName: 'myproject'
+
+  - stage: Deploy
+    jobs:
+      - job: Deploy
+        pool:
+          vmImage: 'ubuntu-latest'
+
+        steps:
+          - task: DockerCompose@0
+            inputs:
+              action: 'Run services'
+              dockerComposeFile: '**/docker-compose.yml'
+              projectName: 'myproject'
+              detached: true
+
+          - task: CopyFilesOverSSH@0
+            inputs:
+              sshEndpoint: 'ssh_connection'
+              sourceFolder: '$(System.DefaultWorkingDirectory)'
+              targetFolder: '/home/ubuntu/myproject'
+              cleanTargetFolder: true
+
+          - script: |
+              docker-compose down
+              docker-compose up -d
+            workingDirectory: '/home/ubuntu/myproject'
+            displayName: 'Restart Docker Compose'
