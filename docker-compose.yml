@@ -1,0 +1,31 @@
+# docker-compose.yml
+
+version: '3.8'
+
+services:
+  app:
+    build: .
+    container_name: flask_app
+    ports:
+      - "5000:5000"
+    environment:
+      - DATABASE_URL=postgresql://connector:connector@db:5432/minecraft_bd  # Cambia localhost por db
+    depends_on:
+      - db
+
+  db:
+    image: postgres:13
+    container_name: postgres_db
+    environment:
+      POSTGRES_USER: connector            # Usuario para conectar a la base de datos
+      POSTGRES_PASSWORD: connector        # Contraseña del usuario de la base de datos
+      POSTGRES_DB: minecraft_bd           # Nombre de la base de datos
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
+
+

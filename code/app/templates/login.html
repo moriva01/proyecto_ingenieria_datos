@@ -12,14 +12,13 @@
         <div class="input-container">
             <label for="nickname">Nickname:</label>
             <input type="text" name="nickname" id="nickname" required>
-        </div>
-        
-        <div class="input-container">
+
             <label for="contrasena">Contraseña:</label>
             <input type="password" name="contrasena" id="contrasena" required>
         </div>
-        
-        <button type="submit">Iniciar Sesión</button>
+        <div class="boton">
+            <button class="boton" type="submit">Iniciar Sesión</button>
+        </div>
     </form>
     
     {% if error %}
