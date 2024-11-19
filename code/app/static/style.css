@@ -11,6 +11,19 @@ body {
     padding: 0;
 }
 
+/* Contenedor del login */
+.input-container {
+    max-width: 100%;
+    margin: 80px auto;
+    margin-bottom: 15px;
+    height: 180px;
+}
+
+.boton {
+    max-width: 100%;
+    margin: 1px auto;
+}
+
 /* Contenedor principal */
 .main-content {
     max-width: 90%; /* Aprovecha más el espacio */
